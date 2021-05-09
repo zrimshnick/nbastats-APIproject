@@ -1,0 +1,26 @@
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  //height: 100%;
+}
+// font style and size
+html {
+  font-family: "Open Sans", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 10rem;
+}
