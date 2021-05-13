@@ -1,5 +1,4 @@
 import { DOMSelectors } from "./DOM";
-import { filler } from "./filler";
 
 ///// CODE /////
 
