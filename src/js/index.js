@@ -1,4 +1,3 @@
-import { bashCompletionSpecFromOptions } from "dashdash";
 import { DOMSelectors } from "./DOM";
 import { filler } from "./filler";
 
