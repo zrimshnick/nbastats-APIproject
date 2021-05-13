@@ -1,0 +1,27 @@
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60vw;
+  margin: 2rem auto;
+}
+#search-area {
+  width: 55vw;
+  height: 5vh;
+  font-size: 2rem;
+  margin: 3rem auto;
+}
+.submit-button {
+  font-size: 2rem;
+}

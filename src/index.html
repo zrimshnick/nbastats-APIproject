@@ -16,8 +16,15 @@
   </head>
   <body>
     <h1 class="header">NBA Stats API Searcher</h1>
-    <h2 class="top-scorers">Highest Scoring Players</h2>
-    <section class="player-list"></section>
+    <form id="search-form" class="search-form">
+      <textarea
+        name="search-area"
+        id="search-area"
+        placeholder="search for a player"
+      ></textarea>
+      <input type="submit" class="submit-button" />
+    </form>
+    <section class="list"></section>
 
     <script src="js/index.js"></script>
   </body>

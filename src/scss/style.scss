@@ -1,3 +1,5 @@
+@use "_search.scss";
+
 html,
 body,
 * {
@@ -5,7 +7,6 @@ body,
   padding: 0;
   box-sizing: border-box;
   font-size: 62.5%;
-  //height: 100%;
 }
 // font style and size
 html {
@@ -15,12 +16,22 @@ html {
 
 body {
   background-color: white;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
+}
+
+.header {
+  font-size: 3.5rem;
+  margin: 3rem auto;
+  text-align: center;
+}
+.list {
+  font-size: 4rem;
+  color: black;
+}
+.player-row {
+  font-size: 2rem;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  font-size: 10rem;
+}
+.player-name {
+  font-size: 3rem;
+  color: black;
 }
