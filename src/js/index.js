@@ -27,7 +27,7 @@ const listen = function () {
       try {
         const response = await fetch(
           //`https://balldontlie.io/api/v1/players?search=${searchParams}`
-          `https://app.cors.bridged.cc/?method=GET&url=https://balldontlie.io&path=/api/v1/players&params=[{"key":"search","value":"${searchParams}","active":true}]`
+          `https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/players?search=${searchParams}`
         );
         const data = await response.json();
         data.data.forEach((player) => {
