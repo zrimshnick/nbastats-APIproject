@@ -6,7 +6,7 @@ const listen = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
     // test
-    console.log(DOMSelectors.searchArea.value);
+    //console.log(DOMSelectors.searchArea.value);
     DOMSelectors.list.innerHTML = "";
     const searchParams = DOMSelectors.searchArea.value;
     const searchQuery = async function () {
@@ -24,6 +24,7 @@ const listen = function () {
               <div class="player-name">${player.last_name}</div>
              </div>`
           );
+          console.log(player.data);
         });
       } catch (error) {
         console.log(error);
