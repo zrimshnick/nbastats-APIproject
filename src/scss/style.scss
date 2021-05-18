@@ -23,13 +23,42 @@ body {
   margin: 3rem auto;
   text-align: center;
 }
-.player-list {
-  font-size: 4rem;
-  color: black;
+
+.filter-options {
+  font-size: 3rem;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
-.player-row {
+.btn-player,
+.btn-team,
+.btn-stats {
+  width: 15vw;
+  padding: 0.75rem;
+  font-size: 2rem;
+  background-color: rgb(130, 176, 194);
+  color: white;
+  transition: all 0.3s;
+}
+
+.btn-player:hover,
+.btn-team:hover,
+.btn-stats:hover {
+  background-color: rgb(92, 192, 231);
+  //transform: scale(1.005);
+}
+.btn-player:active,
+.btn-team:active,
+.btn-stats:active {
+  transform: translateY(0.9rem);
+}
+
+.player-list {
+  color: black;
   font-size: 2rem;
   align-items: center;
+  padding-left: 5rem;
 }
 .player-name {
   font-size: 3rem;

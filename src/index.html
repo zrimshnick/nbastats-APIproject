@@ -16,17 +16,23 @@
   </head>
   <body>
     <h1 class="header">NBA Stats API Searcher</h1>
+    <div class="filter-options" id="filter-options">
+      <button class="btn-player">Player Info</button>
+      <button class="btn-team">Team Info</button>
+      <button class="btn-stats">Season Averages</button>
+    </div>
     <form id="search-form" class="search-form">
       <textarea
+        class="search-area"
         name="search-area"
         id="search-area"
         placeholder="search for a player"
       ></textarea>
       <input type="submit" class="submit-button" />
     </form>
-    <div class="player-list"></div>
-    <div class="player-row">
-      <div class="player-name">html name set</div>
+    <div class="player-list">
+      <!-- <div class="player-name">html name set</div> -->
+      <div class="player-name">extra</div>
     </div>
 
     <script src="js/index.js"></script>
