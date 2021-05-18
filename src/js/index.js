@@ -2,25 +2,22 @@ import { DOMSelectors } from "./DOM";
 
 // reference
 //const searchAreaPlaceholder = document.getElementById("search-form").placeholder;
-const filterPlayer = document.getElementsByClassName("btn-player");
-const filterTeam = document.getElementsByClassName("btn-team");
-const filterStats = document.getElementsByClassName("btn-stats");
+const filterPlayer = document.getElementsByClassName("btn-player")[0];
+const filterTeam = document.getElementsByClassName("btn-team")[0];
+const filterStats = document.getElementsByClassName("btn-stats")[0];
 
 // reference use
 filterPlayer.addEventListener("click", () => {
-  document.getElementById("search-area").placeholder = "Search for a player";
+  document.getElementById("search-area").placeholder =
+    "Search for a player for their bio...";
   console.log("click working");
 });
 filterTeam.addEventListener("click", () => {
-  document.getElementById("search-area").placeholder = "Search for a team";
+  document.getElementById("search-area").placeholder = "Search for a team...";
 });
 filterStats.addEventListener("click", () => {
-  //DOMSelectors.searchAreaPlaceholder.innerHTML(`textarea class="search-area"
-  //name="search-area"
-  //id="search-area"
-  //placeholder="search for a player for their stats"></textarea>`);
   document.getElementById("search-area").placeholder =
-    "Search for a player for their stats";
+    "Search for a player for their stats...";
 });
 
 ///// CODE /////
