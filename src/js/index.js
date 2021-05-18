@@ -10,7 +10,6 @@ const filterStats = document.getElementsByClassName("btn-stats")[0];
 filterPlayer.addEventListener("click", () => {
   document.getElementById("search-area").placeholder =
     "Search for a player for their bio...";
-  console.log("click working");
 });
 filterTeam.addEventListener("click", () => {
   document.getElementById("search-area").placeholder = "Search for a team...";
@@ -32,8 +31,8 @@ const listen = function () {
     const searchQuery = async function () {
       try {
         const response = await fetch(
-          //`https://balldontlie.io/api/v1/players?search=${searchParams}`
-          `https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/players?search=${searchParams}`
+          `https://balldontlie.io/api/v1/players?search=${searchParams}`
+          //`https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/players?search=${searchParams}`
         );
         const data = await response.json();
         data.data.forEach((player) => {
