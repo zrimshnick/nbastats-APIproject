@@ -21,7 +21,7 @@ filterStats.addEventListener("click", () => {
 
 ///// CODE /////
 
-const listen = function () {
+const playersSearch = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
     // test
@@ -36,12 +36,10 @@ const listen = function () {
         );
         const data = await response.json();
         data.data.forEach((player) => {
-          console.log(player.last_name);
           DOMSelectors.list.insertAdjacentHTML(
             "beforeend",
-            `<div class="player-name">${player.last_name}</div>`
+            `<button class="player-name">${player.first_name} ${player.last_name}</button>`
           );
-          console.log(player.data);
         });
       } catch (error) {
         console.log(error);
@@ -52,4 +50,4 @@ const listen = function () {
   });
 };
 
-listen();
+playersSearch();
