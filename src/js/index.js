@@ -14,10 +14,10 @@ filterPlayer.addEventListener("click", () => {
 filterTeam.addEventListener("click", () => {
   document.getElementById("search-area").placeholder = "View a team below...";
 });
-filterStats.addEventListener("click", () => {
+/*filterStats.addEventListener("click", () => {
   document.getElementById("search-area").placeholder =
     "Search for a player for their stats...";
-});
+});*/
 
 ///// CODE /////
 
@@ -38,7 +38,7 @@ const playersSearch = function () {
         data.data.forEach((player) => {
           DOMSelectors.list.insertAdjacentHTML(
             "beforeend",
-            `<button class="item-name">${player.first_name} ${player.last_name}</button>`
+            `<button class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</button>`
           );
         });
       } catch (error) {
@@ -65,7 +65,7 @@ const teamList = function () {
         data.data.forEach((team) => {
           DOMSelectors.list.insertAdjacentHTML(
             "beforeend",
-            `<button class="item-name">${team.full_name}</button>`
+            `<button class="item-name">${team.full_name} - ${team.abbreviation}</button>`
           );
         });
       } catch (error) {
@@ -127,40 +127,10 @@ const teamList = function () {
 };
 */
 
-const seasonAveragesSearch = function () {
-  DOMSelectors.searchForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    // test
-    //console.log(DOMSelectors.searchArea.value);
-    DOMSelectors.list.innerHTML = "";
-    const searchParams = DOMSelectors.searchArea.value;
-    const searchQuery = async function () {
-      try {
-        const response = await fetch(
-          // search param needs to be an id
-          `https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${searchParams}`
-        );
-        const data = await response.json();
-        data.data.forEach((player) => {
-          DOMSelectors.list.insertAdjacentHTML(
-            "beforeend",
-            `<button class="item-name">${player.season} ${player.pts} ${player.reb} ${player.ast} ${player.blk} ${player.stl} ${player.fg_pct} ${player.fg3_pct} ${player.ft_pct}</button>`
-          );
-        });
-      } catch (error) {
-        console.log(error);
-        alert("Something went wrong");
-      }
-    };
-    searchQuery();
-  });
-};
-
 // calling the search functions //
 playersSearch();
 teamList();
-//teamSearch();
-seasonAveragesSearch();
+//techSearch();
 
 /////// make a button to advance to next page
 /////// make an error pop up if there's no results
