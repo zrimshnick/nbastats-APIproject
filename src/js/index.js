@@ -21,6 +21,7 @@ filterStats.addEventListener("click", () => {
 
 ///// CODE /////
 
+/// search functions ///
 const playersSearch = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -31,8 +32,7 @@ const playersSearch = function () {
     const searchQuery = async function () {
       try {
         const response = await fetch(
-          `https://balldontlie.io/api/v1/players?search=${searchParams}`
-          //`https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/players?search=${searchParams}`
+          `https://balldontlie.io/api/v1/players?search=${searchParams}&per_page=100`
         );
         const data = await response.json();
         data.data.forEach((player) => {
@@ -50,4 +50,8 @@ const playersSearch = function () {
   });
 };
 
+// calling the search functions //
 playersSearch();
+
+/////// make a button to advance to next page
+/////// make an error pop up if there's no results
