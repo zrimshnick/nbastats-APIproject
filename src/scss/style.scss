@@ -20,8 +20,16 @@ body {
 
 .header {
   font-size: 3.5rem;
-  margin: 3rem auto;
+  padding-top: 2.5rem;
+  padding-bottom: 1rem;
   text-align: center;
+}
+
+.filter-directions {
+  font-size: 1.75rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  font-style: italic;
 }
 
 .filter-options {
@@ -54,18 +62,18 @@ body {
   transform: translateY(0.9rem);
 }
 
-.player-list {
+.item-list {
   color: black;
   font-size: 2rem;
   align-items: center;
-  padding-left: 5rem;
+  padding-left: 8rem;
   padding-bottom: 2rem;
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.player-name {
+.item-name {
   font-size: 2.5rem;
   color: black;
   padding-bottom: 0.75rem;
@@ -74,6 +82,6 @@ body {
   border: none;
   transition: all 0.3s;
 }
-.player-name:hover {
+.item-name:hover {
   color: rgb(102, 196, 240);
 }

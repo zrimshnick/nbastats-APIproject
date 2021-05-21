@@ -38,7 +38,63 @@ const playersSearch = function () {
         data.data.forEach((player) => {
           DOMSelectors.list.insertAdjacentHTML(
             "beforeend",
-            `<button class="player-name">${player.first_name} ${player.last_name}</button>`
+            `<button class="item-name">${player.first_name} ${player.last_name}</button>`
+          );
+        });
+      } catch (error) {
+        console.log(error);
+        alert("Something went wrong");
+      }
+    };
+    searchQuery();
+  });
+};
+
+const teamList = function () {
+  DOMSelectors.teamsButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    //test
+    //console.log(DOMSelectors.searchArea.value);
+    DOMSelectors.list.innerHTML = "";
+    const searchQuery = async function () {
+      try {
+        const response = await fetch(
+          `https://balldontlie.io/api/v1/teams?per_page=35`
+        );
+        const data = await response.json();
+        data.data.forEach((team) => {
+          DOMSelectors.list.insertAdjacentHTML(
+            "beforeend",
+            `<button class="item-name">${team.full_name}</button>`
+          );
+        });
+      } catch (error) {
+        console.log(error);
+        alert("Something went wrong");
+      }
+    };
+    searchQuery();
+  });
+};
+
+const teamSearch = function () {
+  DOMSelectors.searchForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    // test
+    //console.log(DOMSelectors.searchArea.value);
+    DOMSelectors.list.innerHTML = "";
+    const searchParams = DOMSelectors.searchArea.value;
+
+    const searchQuery = async function () {
+      try {
+        const response = await fetch(
+          `https://balldontlie.io/api/v1/teams/${teamID}`
+        );
+        const data = await response.json();
+        data.data.forEach((team) => {
+          DOMSelectors.list.insertAdjacentHTML(
+            "beforeend",
+            `<button class="item-name">${team.full_name}</button>`
           );
         });
       } catch (error) {
@@ -52,6 +108,8 @@ const playersSearch = function () {
 
 // calling the search functions //
 playersSearch();
+teamList();
+teamSearch();
 
 /////// make a button to advance to next page
 /////// make an error pop up if there's no results
