@@ -8,7 +8,7 @@ body,
   box-sizing: border-box;
   font-size: 62.5%;
 }
-// font style and size
+/////// font style and size
 html {
   font-family: "Open Sans", sans-serif;
   font-size: 62.5%;
@@ -25,13 +25,13 @@ body {
   text-align: center;
 }
 
+/////// filter/button styling
 .filter-directions {
   font-size: 1.75rem;
   padding-bottom: 3rem;
   text-align: center;
   font-style: italic;
 }
-
 .filter-options {
   font-size: 3rem;
   align-content: center;
@@ -49,19 +49,16 @@ body {
   color: white;
   transition: all 0.3s;
 }
-
 .btn-player:hover,
 .btn-team:hover,
 .btn-stats:hover {
   background-color: rgb(92, 192, 231);
-  //transform: scale(1.005);
 }
 .btn-player:active,
 .btn-team:active,
 .btn-stats:active {
   transform: translateY(0.9rem);
 }
-
 .notes {
   font-size: 1.25rem;
   padding-bottom: 1rem;
@@ -69,6 +66,7 @@ body {
   font-style: italic;
 }
 
+////// item list styling
 .item-list {
   color: black;
   font-size: 2rem;
@@ -91,4 +89,15 @@ body {
 }
 .item-name:hover {
   color: rgb(102, 196, 240);
+}
+
+/////// footer styling
+.bottom-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.api {
+  font-size: 2rem;
+  color: black;
 }
