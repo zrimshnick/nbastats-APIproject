@@ -46,13 +46,13 @@ const playersSearch = function () {
             //playerHeightFeet === "/";
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
-              `<button class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</button>
+              `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
               <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}</div>`
             );
           } else {
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
-              `<button class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</button>
+              `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
             <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>`
             );
           }
