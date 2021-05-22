@@ -18,6 +18,12 @@ body {
   background-color: white;
 }
 
+////// hidden visibility
+.hide {
+  display: none;
+}
+
+////// header
 .header {
   font-size: 3.5rem;
   padding-top: 2.5rem;
@@ -91,6 +97,10 @@ body {
 }
 .item-name:hover {
   color: rgb(102, 196, 240);
+}
+.item-info {
+  font-size: 2rem;
+  color: rgb(75, 75, 75);
 }
 
 /////// footer styling

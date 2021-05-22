@@ -22,6 +22,7 @@ filterTeam.addEventListener("click", () => {
 ///// CODE /////
 
 /// search functions ///
+
 const playersSearch = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -36,10 +37,25 @@ const playersSearch = function () {
         );
         const data = await response.json();
         data.data.forEach((player) => {
-          DOMSelectors.list.insertAdjacentHTML(
-            "beforeend",
-            `<button class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</button>`
-          );
+          if (
+            player.height_feet === null ||
+            player.height_inches === null ||
+            player.weight_pounds === null ||
+            player.position === ""
+          ) {
+            //playerHeightFeet === "/";
+            DOMSelectors.list.insertAdjacentHTML(
+              "beforeend",
+              `<button class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</button>
+              <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}</div>`
+            );
+          } else {
+            DOMSelectors.list.insertAdjacentHTML(
+              "beforeend",
+              `<button class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</button>
+            <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>`
+            );
+          }
         });
       } catch (error) {
         console.log(error);
