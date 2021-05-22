@@ -1,3 +1,4 @@
+import { list } from "postcss";
 import { DOMSelectors } from "./DOM";
 import { teamIDs } from "./teamID";
 
@@ -44,6 +45,7 @@ const playersSearch = function () {
             player.position === ""
           ) {
             //playerHeightFeet === "/";
+            list.classList.add("past");
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
               `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
