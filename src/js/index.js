@@ -1,11 +1,10 @@
-import { list } from "postcss";
 import { DOMSelectors } from "./DOM";
 import { teamIDs } from "./teamID";
 
 // reference
 const filterPlayer = document.getElementsByClassName("btn-player")[0];
 const filterTeam = document.getElementsByClassName("btn-team")[0];
-const filterStats = document.getElementsByClassName("btn-stats")[0];
+//const filterStats = document.getElementsByClassName("btn-stats")[0];
 
 // reference use
 filterPlayer.addEventListener("click", () => {
@@ -23,7 +22,7 @@ filterTeam.addEventListener("click", () => {
 ///// CODE /////
 
 /// search functions ///
-
+let playerID = 237;
 const playersSearch = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -31,6 +30,13 @@ const playersSearch = function () {
     //console.log(DOMSelectors.searchArea.value);
     DOMSelectors.list.innerHTML = "";
     const searchParams = DOMSelectors.searchArea.value;
+    /*const checkSearchBar = function () {
+      if (Boolean(searchParams) = false) {
+        alert("Please enter in a name")
+      } else {
+
+      }
+    }*/
     const searchQuery = async function () {
       try {
         const response = await fetch(
@@ -44,8 +50,6 @@ const playersSearch = function () {
             player.weight_pounds === null ||
             player.position === ""
           ) {
-            //playerHeightFeet === "/";
-            //list.classList.add("past");
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
               `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
@@ -55,8 +59,14 @@ const playersSearch = function () {
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
               `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
-            <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>`
+            <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
+            <div class="stats" id="stats">
+            <button class="btn-stats" id="item-stats">
+              Click here for 2021 stats
+            </button>
+          </div>`
             );
+            //const playerID = player.id;
           }
         });
       } catch (error) {
@@ -65,6 +75,31 @@ const playersSearch = function () {
       }
     };
     searchQuery();
+  });
+};
+
+const playerStats = function () {
+  DOMSelectors.playerStatsButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    //DOMSelectors.playerStatsButton.innerHTML = "";
+    const getStats = async function () {
+      try {
+        const response = await fetch(
+          `https://balldontlie.io/api/v1/season_averages?player_ids[]=${playerID}`
+        );
+        const data = await response.json();
+        data.data.forEach((player) => {
+          DOMSelectors.playerStatsDiv.insertAdjacentHTML(
+            "beforeend",
+            `<div class="player-stats" id="player-stats">ppg: ${player.pts}</div>`
+          );
+        });
+      } catch (error) {
+        console.log(error);
+        alert("Something went wrong");
+      }
+    };
+    getStats();
   });
 };
 
@@ -147,6 +182,7 @@ const teamList = function () {
 
 // calling the search functions //
 playersSearch();
+playerStats();
 teamList();
 //techSearch();
 
