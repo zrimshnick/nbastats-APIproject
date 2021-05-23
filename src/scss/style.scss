@@ -114,7 +114,7 @@ body {
 
 .btn-stats {
   width: 30vw;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   font-size: 1.75rem;
   background-color: transparent;
   color: blue;
@@ -133,7 +133,9 @@ body {
   //height: 40vh;
 }
 .player-stats {
-  font-size: 5rem;
+  font-size: 2.5rem;
+  padding-bottom: 2rem;
+  display: block;
 }
 
 /////// footer styling

@@ -59,12 +59,7 @@ const playersSearch = function () {
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
               `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
-            <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
-            <div class="stats" id="stats">
-            <button class="btn-stats" id="item-stats">
-              Click here for 2021 stats
-            </button>
-          </div>`
+            <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>`
             );
             //const playerID = player.id;
           }
@@ -78,22 +73,47 @@ const playersSearch = function () {
   });
 };
 
-const playerStats = function () {
+/*const playerStats = function () {
   DOMSelectors.playerStatsButton.addEventListener("click", function (e) {
     e.preventDefault();
     //DOMSelectors.playerStatsButton.innerHTML = "";
     const getStats = async function () {
       try {
         const response = await fetch(
-          `https://balldontlie.io/api/v1/season_averages?player_ids[]=${playerID}`
+          `https://balldontlie.io/api/v1/season_averages?player_ids[]=237`
         );
         const data = await response.json();
         data.data.forEach((player) => {
           DOMSelectors.playerStatsDiv.insertAdjacentHTML(
             "beforeend",
-            `<div class="player-stats" id="player-stats">ppg: ${player.pts}</div>`
+            `<div class="player-stats" id="player-stats">ppgggg ${player.pts}</div>`
           );
         });
+        console.log("working");
+      } catch (error) {
+        console.log(error);
+        alert("Something went wrong");
+      }
+    };
+    getStats();
+  });
+};*/
+const playerStats = function () {
+  DOMSelectors.playerButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    const getStats = async function () {
+      try {
+        const response = await fetch(
+          `https://balldontlie.io/api/v1/season_averages?player_ids[]=237`
+        );
+        const data = await response.json();
+        data.data.forEach((player) => {
+          DOMSelectors.list.insertAdjacentHTML(
+            "beforeend",
+            `<div class="player-stats" id"player-stats">ppggg: ${player.pts}</div>`
+          );
+        });
+        console.log("working");
       } catch (error) {
         console.log(error);
         alert("Something went wrong");
@@ -102,7 +122,6 @@ const playerStats = function () {
     getStats();
   });
 };
-
 const teamList = function () {
   DOMSelectors.teamsButton.addEventListener("click", function (e) {
     e.preventDefault();
