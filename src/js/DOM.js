@@ -7,6 +7,7 @@ const DOMSelectors = {
   playerStatsDiv: document.querySelector(".stats"),
   playerStatsButton: document.querySelector(".btn-stats"),
   //playerStatsLine: document.getElementById("player-stats"),
+  teamInfo: document.querySelector(".team-info"),
 };
 
 export { DOMSelectors };

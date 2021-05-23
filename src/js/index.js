@@ -7,9 +7,12 @@ const filterTeam = document.getElementsByClassName("btn-team")[0];
 //const filterStats = document.getElementsByClassName("btn-stats")[0];
 
 // reference use
+DOMSelectors.searchArea.disabled = true;
+
 filterPlayer.addEventListener("click", () => {
   document.getElementById("search-area").placeholder = "Search for a player...";
   DOMSelectors.searchArea.disabled = false;
+  DOMSelectors.list.innerHTML = "";
 });
 filterTeam.addEventListener("click", () => {
   document.getElementById("search-area").placeholder = "View a team below...";
@@ -24,8 +27,6 @@ let playerIDArray = {};
 const playersSearch = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    // test
-    //console.log(DOMSelectors.searchArea.value);
     DOMSelectors.list.innerHTML = "";
     const searchParams = DOMSelectors.searchArea.value;
     /*const checkSearchBar = function () {
@@ -59,7 +60,7 @@ const playersSearch = function () {
             ] = `${player.first_name} ${player.last_name}`;
             console.log(playerIDArray);
 
-            const playerID = player.id;
+            //const playerID = player.id;
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
               `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
@@ -73,11 +74,11 @@ const playersSearch = function () {
                   `https://balldontlie.io/api/v1/season_averages?player_ids[]=${playerID}`
                 );
                 const data = await response.json();
-                data.data.forEach((stats) => {
+                /*data.data.forEach((stats) => {
                   document.getElementById(
                     "player-stats"
                   ).innerText = `ppg: ${stats.pts}`;
-                });
+                });*/
               } catch (error) {
                 console.log(error);
                 alert("Something went wrong");
@@ -95,31 +96,6 @@ const playersSearch = function () {
   });
 };
 
-/*
-const playerStats = function () {
-  DOMSelectors.playerButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    const getStats = async function () {
-      try {
-        const response = await fetch(
-          `https://balldontlie.io/api/v1/season_averages?player_ids[]=237`
-        );
-        const data = await response.json();
-        data.data.forEach((player) => {
-          DOMSelectors.list.insertAdjacentHTML(
-            "beforeend",
-            `<div class="player-stats" id"player-stats">ppggg: ${player.pts}</div>`
-          );
-        });
-        console.log("working");
-      } catch (error) {
-        console.log(error);
-        alert("Something went wrong");
-      }
-    };
-    getStats();
-  });
-};*/
 const teamList = function () {
   DOMSelectors.teamsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -135,7 +111,8 @@ const teamList = function () {
         data.data.forEach((team) => {
           DOMSelectors.list.insertAdjacentHTML(
             "beforeend",
-            `<button class="item-name">${team.full_name} - ${team.abbreviation}</button>`
+            `<button class="item-name">${team.full_name}</button>
+            <div class="team-info hide" id="${team.id}">${team.abbreviation}  |  Conference: ${team.conference}  |  Division: ${team.division}</div>`
           );
         });
       } catch (error) {
@@ -146,12 +123,32 @@ const teamList = function () {
     searchQuery();
   });
 };
-
+/*const teamInfoFunction = function () {
+  const findTeamID = async function () {
+    try {
+      const response = await fetch(
+        `https://balldontlie.io/api/v1/teams?per_page=35`
+      );
+      const data = await response.json();
+      data.data.forEach((team) => {
+        document.getElementById(`${team.id}`).addEventListener("click", () => {
+          teamInfo.classList.remove("hide");
+        });
+      });
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong");
+    }
+  };
+  findTeamID();
+};
+*/
 // calling the search functions //
 playersSearch();
 //showPlayerStats();
 //playerStats();
 teamList();
+//teamInfoFunction();
 
 /////// make a button to advance to next page
 /////// make an error pop up if there's no results
