@@ -18,7 +18,7 @@ filterTeam.addEventListener("click", () => {
 ///// CODE /////
 
 /// search functions ///
-let playerID = 237;
+//let playerID = 237;
 const playersSearch = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -52,13 +52,30 @@ const playersSearch = function () {
               <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}</div>`
             );
           } else {
+            const playerID = player.id;
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
               `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
             <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
-            <div class="player-stats hide" id="player-stats">ppg: ${player.id}</div>`
+            <div class="player-stats" id="player-stats"></div>`
             );
-            //const playerID = player.id;
+            const getPlayerStats = async function () {
+              try {
+                const response = await fetch(
+                  `https://balldontlie.io/api/v1/season_averages?player_ids[]=${playerID}`
+                );
+                const data = await response.json();
+                data.data.forEach((stats) => {
+                  document.getElementById(
+                    "player-stats"
+                  ).innerText = `ppg: ${stats.pts}`;
+                });
+              } catch (error) {
+                console.log(error);
+                alert("Something went wrong");
+              }
+            };
+            getPlayerStats();
           }
         });
       } catch (error) {
@@ -98,8 +115,6 @@ const playerStats = function () {
 const teamList = function () {
   DOMSelectors.teamsButton.addEventListener("click", function (e) {
     e.preventDefault();
-    //test
-    //console.log(DOMSelectors.searchArea.value);
     DOMSelectors.list.innerHTML = "";
     const searchQuery = async function () {
       try {

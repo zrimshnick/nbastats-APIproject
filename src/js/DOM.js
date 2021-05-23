@@ -6,7 +6,7 @@ const DOMSelectors = {
   playerButton: document.querySelector(".item-name"),
   playerStatsDiv: document.querySelector(".stats"),
   playerStatsButton: document.querySelector(".btn-stats"),
-  playerStatsLine: document.getElementById("player-stats"),
+  //playerStatsLine: document.getElementById("player-stats"),
 };
 
 export { DOMSelectors };
