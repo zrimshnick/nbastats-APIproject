@@ -54,17 +54,11 @@ const playersSearch = function () {
               <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}</div>`
             );
           } else {
-            /*const addID = function () {
-              playerIDArray.push([
-                `${player.id}`,
-                `${player.first_name} ${player.last_name}`,
-              ]);
-              console.log(playerIDArray);
-              console.log(playerIDArray[0]);
-            };
-            addID();*/
-            playerIDArray[new_id] = new_name;
-            let id = playerIDArray.name;
+            playerIDArray[
+              `${player.id}`
+            ] = `${player.first_name} ${player.last_name}`;
+            console.log(playerIDArray);
+
             const playerID = player.id;
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
@@ -72,6 +66,7 @@ const playersSearch = function () {
             <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
             <div class="player-stats" id="player-stats"></div>`
             );
+
             const getPlayerStats = async function () {
               try {
                 const response = await fetch(
