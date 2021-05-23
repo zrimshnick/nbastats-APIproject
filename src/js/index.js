@@ -1,5 +1,4 @@
 import { DOMSelectors } from "./DOM";
-import { playerIDs } from "./playerID";
 
 // reference
 const filterPlayer = document.getElementsByClassName("btn-player")[0];
@@ -56,35 +55,45 @@ const playersSearch = function () {
             );
           } else {
             playerIDArray[
-              `${player.id}`
-            ] = `${player.first_name} ${player.last_name}`;
+              `${player.first_name} ${player.last_name}`
+            ] = `${player.id}`;
             console.log(playerIDArray);
-
-            //const playerID = player.id;
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
-              `<li><a class="item-name">${player.first_name} ${player.last_name} - ${player.team.abbreviation}</a></li>
+              `<li><a class="item-name" id="p${player.id}">${player.first_name} ${player.last_name}</a></li>
             <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
-            <div class="player-stats" id="player-stats"></div>`
+            <div class="player-stats" id="${player.id}"></div>`
             );
             DOMSelectors.searchArea.value = "";
-            const getPlayerStats = async function () {
-              try {
-                const response = await fetch(
-                  `https://balldontlie.io/api/v1/season_averages?player_ids[]=${playerID}`
-                );
-                const data = await response.json();
-                /*data.data.forEach((stats) => {
-                  document.getElementById(
-                    "player-stats"
-                  ).innerText = `ppg: ${stats.pts}`;
-                });*/
-              } catch (error) {
-                console.log(error);
-                alert("Something went wrong");
-              }
+            const playerStatsFunction = function () {
+              const playerButtonText = document.getElementById(
+                `p${player.id}`
+              ).textContent;
+              const playerIDParam = player.id;
+              console.log(playerButtonText);
+              console.log(playerIDParam);
+              const gettingStats = async function () {
+                try {
+                  const response = await fetch(
+                    `https://balldontlie.io/api/v1/season_averages?player_ids[]=${playerIDParam}`
+                  );
+                  const data = await response.json();
+                  data.data.forEach((stats) => {
+                    document.getElementById(
+                      `${playerIDParam}`
+                    ).innerText = `ppg: ${stats.pts}`;
+                  });
+                } catch (error) {
+                  console.log(error);
+                  alert("Something went wrong");
+                }
+              };
+              gettingStats();
+              /*document.getElementById(
+                `ppg: ${player.id}`
+              ).innerText = `${player.id}`;*/
             };
-            getPlayerStats();
+            playerStatsFunction();
           }
         });
       } catch (error) {
@@ -96,6 +105,9 @@ const playersSearch = function () {
   });
 };
 
+//////// playerStats
+
+////////
 const teamList = function () {
   DOMSelectors.teamsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -112,7 +124,7 @@ const teamList = function () {
           DOMSelectors.list.insertAdjacentHTML(
             "beforeend",
             `<button class="item-name">${team.full_name}</button>
-            <div class="team-info hide" id="${team.id}">${team.abbreviation}  |  Conference: ${team.conference}  |  Division: ${team.division}</div>`
+            <div class="team-info hide" id="t${team.id}">${team.abbreviation}  |  Conference: ${team.conference}  |  Division: ${team.division}</div>`
           );
         });
       } catch (error) {
