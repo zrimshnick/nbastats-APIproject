@@ -8,8 +8,8 @@ const filterTeam = document.getElementsByClassName("btn-team")[0];
 
 // reference use
 filterPlayer.addEventListener("click", () => {
-  document.getElementById("search-area").placeholder =
-    "Search for a player for their bio...";
+  document.getElementById("search-area").placeholder = "Search for a player...";
+  DOMSelectors.searchArea.disabled = false;
 });
 filterTeam.addEventListener("click", () => {
   document.getElementById("search-area").placeholder = "View a team below...";
@@ -66,7 +66,7 @@ const playersSearch = function () {
             <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
             <div class="player-stats" id="player-stats"></div>`
             );
-
+            DOMSelectors.searchArea.value = "";
             const getPlayerStats = async function () {
               try {
                 const response = await fetch(
@@ -123,6 +123,8 @@ const playerStats = function () {
 const teamList = function () {
   DOMSelectors.teamsButton.addEventListener("click", function (e) {
     e.preventDefault();
+    DOMSelectors.searchArea.value = "";
+    DOMSelectors.searchArea.disabled = true;
     DOMSelectors.list.innerHTML = "";
     const searchQuery = async function () {
       try {
