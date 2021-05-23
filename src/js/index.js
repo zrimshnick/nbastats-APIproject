@@ -1,5 +1,5 @@
 import { DOMSelectors } from "./DOM";
-import { teamIDs } from "./teamID";
+import { playerIDs } from "./playerID";
 
 // reference
 const filterPlayer = document.getElementsByClassName("btn-player")[0];
@@ -19,6 +19,7 @@ filterTeam.addEventListener("click", () => {
 
 /// search functions ///
 //let playerID = 237;
+let playerIDArray = [];
 const playersSearch = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -52,6 +53,13 @@ const playersSearch = function () {
               <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}</div>`
             );
           } else {
+            const addID = function () {
+              playerIDArray.push([
+                `${player.id}`,
+                `${player.first_name} ${player.last_name}`,
+              ]);
+            };
+            addID();
             const playerID = player.id;
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
