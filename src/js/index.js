@@ -81,7 +81,23 @@ const playersSearch = function () {
                   data.data.forEach((stats) => {
                     document.getElementById(
                       `${playerIDParam}`
-                    ).innerText = `ppg: ${stats.pts}`;
+                    ).innerText = `PPG: ${Number(stats.pts).toFixed(
+                      1
+                    )},\xa0\xa0RPG: ${Number(stats.reb).toFixed(
+                      1
+                    )},\xa0\xa0APG: ${Number(stats.ast).toFixed(
+                      1
+                    )}\xa0\xa0|\xa0\xa0SPG: ${stats.stl},\xa0\xa0BPG: ${
+                      stats.blk
+                    }\xa0\xa0|\xa0\xa0TO: ${Number(stats.turnover).toFixed(
+                      1
+                    )}\xa0\xa0|\xa0\xa0FG: ${Number(stats.fg_pct * 100).toFixed(
+                      0
+                    )}%, 3PT: ${Number(stats.fg3_pct * 100).toFixed(
+                      0
+                    )}%, FT: ${Number(stats.ft_pct * 100).toFixed(
+                      0
+                    )}%\xa0\xa0|\xa0\xa0MPG: ${stats.min}`;
                   });
                 } catch (error) {
                   console.log(error);
@@ -89,9 +105,6 @@ const playersSearch = function () {
                 }
               };
               gettingStats();
-              /*document.getElementById(
-                `ppg: ${player.id}`
-              ).innerText = `${player.id}`;*/
             };
             playerStatsFunction();
           }
