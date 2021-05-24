@@ -1,9 +1,20 @@
 import { DOMSelectors } from "./DOM";
 
+//////////// WHAT TO WORK ON /////////////
+//// GET TEAMS TO SHOW INFO AS WELL
+//// Booleans to prevent empty search field
+//// Simplifying functions and code to be readble
+/// Better error codes and messages
+/// Only show stats on click
+// add icon for tab
+// Visually appealing CSS
+// Use alt tags and stuff for accessibility - use chrome for that
+
+//////////////////////////////////////////
+
 // reference
 const filterPlayer = document.getElementsByClassName("btn-player")[0];
 const filterTeam = document.getElementsByClassName("btn-team")[0];
-//const filterStats = document.getElementsByClassName("btn-stats")[0];
 
 // reference use
 DOMSelectors.searchArea.disabled = true;
@@ -54,10 +65,6 @@ const playersSearch = function () {
               <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}</div>`
             );
           } else {
-            playerIDArray[
-              `${player.first_name} ${player.last_name}`
-            ] = `${player.id}`;
-            console.log(playerIDArray);
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
               `<li><a class="item-name" id="p${player.id}">${player.first_name} ${player.last_name}</a></li>
@@ -148,32 +155,9 @@ const teamList = function () {
     searchQuery();
   });
 };
-/*const teamInfoFunction = function () {
-  const findTeamID = async function () {
-    try {
-      const response = await fetch(
-        `https://balldontlie.io/api/v1/teams?per_page=35`
-      );
-      const data = await response.json();
-      data.data.forEach((team) => {
-        document.getElementById(`${team.id}`).addEventListener("click", () => {
-          teamInfo.classList.remove("hide");
-        });
-      });
-    } catch (error) {
-      console.log(error);
-      alert("Something went wrong");
-    }
-  };
-  findTeamID();
-};
-*/
 // calling the search functions //
 playersSearch();
-//showPlayerStats();
-//playerStats();
 teamList();
-//teamInfoFunction();
 
 /////// make a button to advance to next page
 /////// make an error pop up if there's no results
