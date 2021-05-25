@@ -1,0 +1,44 @@
+////// item list styling
+.item-list {
+  color: black;
+  font-size: 2rem;
+  align-items: center;
+  padding-left: 8rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+}
+.item-name {
+  font-size: 2.5rem;
+  color: black;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.item-name:hover {
+  color: rgb(102, 196, 240);
+}
+
+.item-info {
+  font-size: 2rem;
+  color: rgb(75, 75, 75);
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+.player-stats {
+  font-size: 1.75rem;
+  padding-bottom: 2rem;
+}
+
+///// team stuff
+.team-info {
+  font-size: 1.75rem;
+  padding-bottom: 1rem;
+}

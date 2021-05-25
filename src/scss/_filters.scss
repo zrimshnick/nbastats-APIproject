@@ -1,0 +1,32 @@
+/////// filter/button styling
+.filter-directions {
+  font-size: 1.75rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  font-style: italic;
+}
+.filter-options {
+  font-size: 3rem;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.btn-player,
+.btn-team {
+  width: 15vw;
+  padding: 0.75rem;
+  font-size: 2rem;
+  background-color: rgb(130, 176, 194);
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.btn-player:hover,
+.btn-team:hover {
+  background-color: rgb(92, 192, 231);
+}
+.btn-player:active,
+.btn-team:active {
+  transform: translateY(0.9rem);
+}
