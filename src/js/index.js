@@ -6,7 +6,7 @@ import { DOMSelectors } from "./DOM";
 //// Simplifying functions and code to be readble  [:)]
 /// Better error codes and messages   [:)]
 /// Only show stats on click  [:)]
-// add icon for tab
+// add icon for tab  [:(] not working error
 // Visually appealing CSS
 // Use alt tags and stuff for accessibility - use chrome for that
 
