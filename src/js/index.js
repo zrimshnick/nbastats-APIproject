@@ -100,9 +100,19 @@ const playersSearch = function () {
                     document
                       .getElementById(`p${stats.player_id}`)
                       .addEventListener("click", () => {
-                        document
-                          .getElementById(`${stats.player_id}`)
-                          .classList.remove("hide");
+                        if (
+                          document
+                            .getElementById(`${stats.player_id}`)
+                            .classList.contains("hide")
+                        ) {
+                          document
+                            .getElementById(`${stats.player_id}`)
+                            .classList.remove("hide");
+                        } else {
+                          document
+                            .getElementById(`${stats.player_id}`)
+                            .classList.add("hide");
+                        }
                       });
                   });
                 } catch (error) {
