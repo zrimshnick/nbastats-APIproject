@@ -83,13 +83,6 @@ body {
   align-items: flex-start;
   list-style: none;
 }
-/*.item-list.past {
-  list-style: none;
-  color: blue;
-}*/
-/*.item-list .current {
-  list-style: url("C:\Users\zrims\HS School Stuff\api-project-zackrim\img\basketballicon.png");
-}*/
 .item-name {
   font-size: 2.5rem;
   color: black;
@@ -112,22 +105,6 @@ body {
   padding-top: 0.5rem;
 }
 
-.btn-stats {
-  width: 30vw;
-  padding-bottom: 0.5rem;
-  font-size: 1.75rem;
-  background-color: transparent;
-  color: blue;
-  transition: all 0.2s;
-  border: none;
-  cursor: pointer;
-}
-.btn-stats:hover {
-  color: rgb(70, 211, 236);
-}
-.btn-stats:active {
-  transform: translateY(0.3rem);
-}
 .stats {
   //width: 20vw;
   //height: 40vh;
