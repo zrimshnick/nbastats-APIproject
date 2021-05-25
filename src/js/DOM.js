@@ -1,4 +1,6 @@
 const DOMSelectors = {
+  filterPlayer: document.getElementsByClassName("btn-player")[0],
+  filterTeam: document.getElementsByClassName("btn-team")[0],
   list: document.querySelector(".item-list"),
   searchForm: document.getElementById("search-form"),
   searchArea: document.getElementById("search-area"),
@@ -6,7 +8,6 @@ const DOMSelectors = {
   playerButton: document.getElementsByClassName(".item-name"),
   playerStatsDiv: document.getElementsByClassName(".player-stats"),
   playerStatsButton: document.querySelector(".btn-stats"),
-  //playerStatsLine: document.getElementById("player-stats"),
   teamInfo: document.querySelector(".team-info"),
 };
 

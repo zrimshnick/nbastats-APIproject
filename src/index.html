@@ -18,8 +18,8 @@
     <h1 class="header">NBA Stats API Searcher</h1>
     <div class="filter-directions">Select an option to begin:</div>
     <div class="filter-options" id="filter-options">
-      <button class="btn-player">Player Info</button>
-      <button class="btn-team">Team Info</button>
+      <button class="btn-player">Players</button>
+      <button class="btn-team">Teams</button>
     </div>
     <form id="search-form" class="search-form">
       <textarea
@@ -34,17 +34,15 @@
       **Note that current players have more recent information available, as
       well as this season's statistics
     </div>
+    <div class="notes hide" id="player-stats-directions">
+      Click on a player to toggle their stats from the 2021 season
+    </div>
+    <div class="notes hide" id="team-info-directions">
+      Click on a team to toggle their information
+    </div>
     <div class="item-list">
-      <!-- <div class="item-name">html name set</div> -->
-      <!-- <div class="item-info">html name set</div> -->
       <button class="item-name">test</button>
       <div class="item-info" id="item-info">info</div>
-      <!--<div class="stats" id="stats">
-        <button class="btn-stats" id="btn-stats">
-          Click here for 2021 stats
-        </button>
-        <div class="player-stats" class="hide" id="player-stats">ppg:</div>
-      </div> -->
     </div>
 
     <div class="bottom-footer">

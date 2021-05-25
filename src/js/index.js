@@ -1,39 +1,35 @@
 import { DOMSelectors } from "./DOM";
 
 //////////// WHAT TO WORK ON /////////////
-//// GET TEAMS TO SHOW INFO AS WELL
+//// GET TEAMS TO SHOW INFO AS WELL  [:)]
 //// Booleans to prevent empty search field
-//// Simplifying functions and code to be readble
-/// Better error codes and messages
-/// Only show stats on click
+//// Simplifying functions and code to be readble  [:)]
+/// Better error codes and messages   [:)]
+/// Only show stats on click  [:)]
 // add icon for tab
 // Visually appealing CSS
 // Use alt tags and stuff for accessibility - use chrome for that
 
 //////////////////////////////////////////
 
-// reference
-const filterPlayer = document.getElementsByClassName("btn-player")[0];
-const filterTeam = document.getElementsByClassName("btn-team")[0];
-
 // reference use
 DOMSelectors.searchArea.disabled = true;
-
-filterPlayer.addEventListener("click", () => {
+DOMSelectors.filterPlayer.addEventListener("click", () => {
   document.getElementById("search-area").placeholder = "Search for a player...";
   DOMSelectors.searchArea.disabled = false;
   DOMSelectors.list.innerHTML = "";
+  document.getElementById("player-stats-directions").classList.remove("hide");
+  document.getElementById("team-info-directions").classList.add("hide");
 });
-filterTeam.addEventListener("click", () => {
+DOMSelectors.filterTeam.addEventListener("click", () => {
   document.getElementById("search-area").placeholder = "View a team below...";
+  document.getElementById("player-stats-directions").classList.add("hide");
+  document.getElementById("team-info-directions").classList.remove("hide");
 });
 
 ///// CODE /////
 
 /// search functions ///
-//let playerID = 237;
-//let playerIDArray = [];
-let playerIDArray = {};
 const playersSearch = function () {
   DOMSelectors.searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -69,15 +65,11 @@ const playersSearch = function () {
               "beforeend",
               `<li><a class="item-name" id="p${player.id}">${player.first_name} ${player.last_name}</a></li>
             <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
-            <div class="player-stats" id="${player.id}"></div>`
+            <div class="player-stats hide" id="${player.id}"></div>`
             );
             DOMSelectors.searchArea.value = "";
             const playerStatsFunction = function () {
-              const playerButtonText = document.getElementById(
-                `p${player.id}`
-              ).textContent;
               const playerIDParam = player.id;
-              console.log(playerButtonText);
               console.log(playerIDParam);
               const gettingStats = async function () {
                 try {
@@ -105,10 +97,19 @@ const playersSearch = function () {
                     )}%, FT: ${Number(stats.ft_pct * 100).toFixed(
                       0
                     )}%\xa0\xa0|\xa0\xa0MPG: ${stats.min}`;
+                    document
+                      .getElementById(`p${stats.player_id}`)
+                      .addEventListener("click", () => {
+                        document
+                          .getElementById(`${stats.player_id}`)
+                          .classList.remove("hide");
+                      });
                   });
                 } catch (error) {
                   console.log(error);
-                  alert("Something went wrong");
+                  alert(
+                    "Something went wrong: Problem fetching data from API; Check CORS Restrictions"
+                  );
                 }
               };
               gettingStats();
@@ -118,14 +119,14 @@ const playersSearch = function () {
         });
       } catch (error) {
         console.log(error);
-        alert("Something went wrong");
+        alert(
+          "Something went wrong: Problem fetching data from API; Check CORS Restrictions"
+        );
       }
     };
     searchQuery();
   });
 };
-
-//////// playerStats
 
 ////////
 const teamList = function () {
@@ -143,13 +144,28 @@ const teamList = function () {
         data.data.forEach((team) => {
           DOMSelectors.list.insertAdjacentHTML(
             "beforeend",
-            `<button class="item-name">${team.full_name}</button>
-            <div class="team-info hide" id="t${team.id}">${team.abbreviation}  |  Conference: ${team.conference}  |  Division: ${team.division}</div>`
+            `<button class="item-name" id="${team.abbreviation}">${team.full_name}</button>
+              <div class="team-info hide" id="t${team.id}">${team.abbreviation}  |  Conference: ${team.conference}  |  Division: ${team.division}</div>`
           );
+          document
+            .getElementById(`${team.abbreviation}`)
+            .addEventListener("click", () => {
+              if (
+                document
+                  .getElementById(`t${team.id}`)
+                  .classList.contains("hide")
+              ) {
+                document.getElementById(`t${team.id}`).classList.remove("hide");
+              } else {
+                document.getElementById(`t${team.id}`).classList.add("hide");
+              }
+            });
         });
       } catch (error) {
         console.log(error);
-        alert("Something went wrong");
+        alert(
+          "Something went wrong: Problem fetching data from API; Check CORS Restrictions"
+        );
       }
     };
     searchQuery();
