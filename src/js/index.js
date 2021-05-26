@@ -35,20 +35,22 @@ const playersSearch = function () {
     e.preventDefault();
     DOMSelectors.list.innerHTML = "";
     const searchParams = DOMSelectors.searchArea.value;
-    /*const checkSearchBar = function () {
-      if (Boolean(searchParams) = false) {
-        alert("Please enter in a name")
-      } else {
-
-      }
-    }*/
     const searchQuery = async function () {
       try {
         const response = await fetch(
           `https://balldontlie.io/api/v1/players?search=${searchParams}&per_page=100`
         );
         const data = await response.json();
+        console.log(data.meta.total_count);
+        if (data.meta.total_count === 0) {
+          alert(
+            `No results for "${searchParams}": Please check player name spelling`
+          );
+          DOMSelectors.searchArea.value = "";
+        } else {
+        }
         data.data.forEach((player) => {
+          console.log(items);
           if (
             player.height_feet === null ||
             player.height_inches === null ||
@@ -134,7 +136,13 @@ const playersSearch = function () {
         );
       }
     };
-    searchQuery();
+    if (searchParams.length > 0) {
+      console.log("search params has stuff");
+      searchQuery();
+    } else {
+      console.log("search params is blank");
+      alert("Search Bar was left blank, please enter in a player name");
+    }
   });
 };
 
