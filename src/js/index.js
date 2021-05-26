@@ -65,7 +65,7 @@ const playersSearch = function () {
             DOMSelectors.list.insertAdjacentHTML(
               "beforeend",
               `<li><a class="item-name" id="p${player.id}">${player.first_name} ${player.last_name}</a></li>
-            <div class="item-info" id="item-info">&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
+            <div class="item-info" id="item-info" >&nbsp&nbsp~&nbsp${player.team.full_name}  |  Pos: ${player.position}  |  ${player.height_feet}'${player.height_inches}",  ${player.weight_pounds}lbs  </div>
             <div class="player-stats hide" id="${player.id}"></div>`
             );
             DOMSelectors.searchArea.value = "";
@@ -161,8 +161,8 @@ const teamList = function () {
         data.data.forEach((team) => {
           DOMSelectors.list.insertAdjacentHTML(
             "beforeend",
-            `<button class="item-name" id="${team.abbreviation}">${team.full_name}</button>
-              <div class="team-info hide" id="t${team.id}">${team.abbreviation}  |  Conference: ${team.conference}  |  Division: ${team.division}</div>`
+            `<button class="item-name" id="${team.abbreviation}" >${team.full_name}</button>
+              <div class="team-info hide" id="t${team.id}" alt="${team.full_name} ${team.conference} ${team.division}">${team.abbreviation}  |  Conference: ${team.conference}  |  Division: ${team.division}</div>`
           );
           document
             .getElementById(`${team.abbreviation}`)
