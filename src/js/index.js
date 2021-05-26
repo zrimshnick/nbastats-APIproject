@@ -7,8 +7,8 @@ import { DOMSelectors } from "./DOM";
 /// Better error codes and messages   :)
 /// Only show stats on click  :)
 // add icon for tab  :( not working error
-// Visually appealing CSS
-// Use alt tags and stuff for accessibility
+// Visually appealing CSS :)
+// Use alt tags and stuff for accessibility :/ netlify not showing
 
 //////////////////////////////////////////
 
