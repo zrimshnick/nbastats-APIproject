@@ -13,7 +13,7 @@
   "devDependencies": {
     "cssnano": "^4.1.11",
     "parcel-bundler": "^1.12.4",
-    "sass": "^1.26.9"
+    "sass": "^1.34.0"
   },
   "browserslist": [
     "since 2017-06"
