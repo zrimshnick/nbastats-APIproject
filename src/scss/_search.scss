@@ -23,6 +23,14 @@ body {
   padding: 0.5rem;
   margin: 3rem auto;
   font-family: "Open Sans", sans-serif;
+  border-radius: 0.2rem;
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: black;
+  box-shadow: 0rem 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.274);
+}
+#search-area:focus {
+  outline: none;
 }
 .submit-button {
   width: 20vw;
@@ -34,8 +42,9 @@ body {
   cursor: pointer;
 }
 .submit-button:hover {
-  background-color: rgb(92, 192, 231);
+  background-color: rgb(129, 69, 119);
 }
+
 .submit-button:active {
   transform: translateY(0.9rem);
 }

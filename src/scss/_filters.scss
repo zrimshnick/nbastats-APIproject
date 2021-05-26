@@ -12,21 +12,38 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.btn-player {
+  background-color: rgb(88, 86, 238);
+}
+.btn-player.toggle {
+  background-color: rgb(129, 69, 119);
+  border-style: groove;
+  transform: scale(0.99);
+}
+.btn-team {
+  background-color: rgb(88, 86, 238);
+}
+.btn-team.toggle {
+  background-color: rgb(129, 69, 119);
+  border-style: groove;
+  transform: scale(0.99);
+}
+
 .btn-player,
 .btn-team {
   width: 15vw;
   padding: 0.75rem;
   font-size: 2rem;
-  background-color: rgb(88, 86, 238);
   color: white;
   transition: all 0.3s;
   cursor: pointer;
 }
 .btn-player:hover,
 .btn-team:hover {
-  background-color: rgb(92, 192, 231);
+  background-color: rgb(129, 69, 119);
 }
 .btn-player:active,
 .btn-team:active {
-  transform: translateY(0.9rem);
+  transform: scale(0.9);
 }

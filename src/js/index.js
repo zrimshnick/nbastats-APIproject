@@ -8,11 +8,15 @@ DOMSelectors.filterPlayer.addEventListener("click", () => {
   DOMSelectors.list.innerHTML = "";
   document.getElementById("player-stats-directions").classList.remove("hide");
   document.getElementById("team-info-directions").classList.add("hide");
+  document.getElementById("btn-player").classList.add("toggle");
+  document.getElementById("btn-team").classList.remove("toggle");
 });
 DOMSelectors.filterTeam.addEventListener("click", () => {
   document.getElementById("search-area").placeholder = "View a team below...";
   document.getElementById("player-stats-directions").classList.add("hide");
   document.getElementById("team-info-directions").classList.remove("hide");
+  document.getElementById("btn-player").classList.remove("toggle");
+  document.getElementById("btn-team").classList.add("toggle");
 });
 
 ///// CODE /////
