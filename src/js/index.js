@@ -3,20 +3,20 @@ import { DOMSelectors } from "./DOM";
 // reference use
 DOMSelectors.searchArea.disabled = true;
 DOMSelectors.filterPlayer.addEventListener("click", () => {
-  document.getElementById("search-area").placeholder = "Search for a player...";
+  DOMSelectors.searchArea.placeholder = "Search for a player...";
   DOMSelectors.searchArea.disabled = false;
   DOMSelectors.list.innerHTML = "";
-  document.getElementById("player-stats-directions").classList.remove("hide");
-  document.getElementById("team-info-directions").classList.add("hide");
-  document.getElementById("btn-player").classList.add("toggle");
-  document.getElementById("btn-team").classList.remove("toggle");
+  DOMSelectors.playerStatsDirections.classList.remove("hide");
+  DOMSelectors.teamInfoDirections.classList.add("hide");
+  DOMSelectors.filterPlayer.classList.add("toggle");
+  DOMSelectors.filterTeam.classList.remove("toggle");
 });
 DOMSelectors.filterTeam.addEventListener("click", () => {
-  document.getElementById("search-area").placeholder = "View a team below...";
-  document.getElementById("player-stats-directions").classList.add("hide");
-  document.getElementById("team-info-directions").classList.remove("hide");
-  document.getElementById("btn-player").classList.remove("toggle");
-  document.getElementById("btn-team").classList.add("toggle");
+  DOMSelectors.searchArea.placeholder = "View a team below...";
+  DOMSelectors.playerStatsDirections.classList.add("hide");
+  DOMSelectors.teamInfoDirections.classList.remove("hide");
+  DOMSelectors.filterPlayer.classList.remove("toggle");
+  DOMSelectors.filterTeam.classList.add("toggle");
 });
 
 ///// CODE /////
@@ -33,7 +33,6 @@ const playersSearch = function () {
           `https://balldontlie.io/api/v1/players?search=${searchParams}&per_page=100`
         );
         const data = await response.json();
-        console.log(data.meta.total_count);
         if (data.meta.total_count === 0) {
           alert(
             `No results for "${searchParams}": Please check player name spelling`
@@ -183,6 +182,3 @@ const teamList = function () {
 // calling the search functions //
 playersSearch();
 teamList();
-
-/////// make a button to advance to next page
-/////// make an error pop up if there's no results
