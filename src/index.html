@@ -18,6 +18,12 @@
       <button class="btn-player" id="btn-player">Players</button>
       <button class="btn-team" id="btn-team">Teams</button>
     </div>
+    <div class="notes" id="player-stats-directions">
+      Click on a player to toggle their stats from the 2022-2023 season
+    </div>
+    <div class="notes hide" id="team-info-directions">
+      Click on a team to toggle their information
+    </div>
     <form id="search-form" class="search-form">
       <textarea
         class="search-area"
@@ -27,20 +33,14 @@
       ></textarea>
       <input type="submit" class="submit-button" value="Enter" />
     </form>
-    <div class="notes">
-      **Note that current players have more recent information available, as
-      well as this season's statistics
-    </div>
-    <div class="notes" id="player-stats-directions">
-      Click on a player to toggle their stats from the 2022-2023 season
-    </div>
-    <div class="notes hide" id="team-info-directions">
-      Click on a team to toggle their information
-    </div>
     <div class="item-list">
       <div class="item-info" id="item-info"></div>
     </div>
 
+    <div class="notes-bottom">
+      **Note that current players have more recent information available, as
+      well as this season's statistics
+    </div>
     <div class="bottom-footer">
       <div class="api">Credit to the&nbsp</div>
       <a href="https://www.balldontlie.io/" class="api" target="_blank"

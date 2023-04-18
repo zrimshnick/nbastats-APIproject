@@ -15,12 +15,13 @@ body {
   align-items: center;
   width: 60vw;
   margin: 2rem auto;
+  margin-top: 0rem;
 }
 
 #search-area {
   width: 65vw;
-  height: 5vh;
-  font-size: 2.25rem;
+  height: 4vh;
+  font-size: 2rem;
   padding: 0.5rem;
   margin: 3rem auto;
   font-family: "Open Sans", sans-serif;
@@ -183,11 +184,19 @@ body {
   text-align: center;
 }
 
+.notes-bottom {
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  font-style: italic;
+}
+
 .notes {
   font-size: 1.25rem;
   padding-bottom: 1rem;
   text-align: center;
   font-style: italic;
+  padding-top: 2rem;
 }
 
 .bottom-footer {
