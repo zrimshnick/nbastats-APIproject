@@ -1,4 +1,4 @@
-import { DOMSelectors } from "./DOM";
+import { DOMSelectors } from "./DOM.js";
 
 // reference use
 DOMSelectors.searchArea.disabled = true;
