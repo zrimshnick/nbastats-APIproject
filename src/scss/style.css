@@ -1,13 +1,165 @@
-@use "_search.scss";
-@use "_filters.scss";
-@use "_items.scss";
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60vw;
+  margin: 2rem auto;
+}
+
+#search-area {
+  width: 65vw;
+  height: 5vh;
+  font-size: 2.25rem;
+  padding: 0.5rem;
+  margin: 3rem auto;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 0.2rem;
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: black;
+  box-shadow: 0rem 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.274);
+}
+
+#search-area:focus {
+  outline: none;
+}
+
+.submit-button {
+  width: 20vw;
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: rgb(88, 86, 238);
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: rgb(129, 69, 119);
+}
+
+.submit-button:active {
+  transform: translateY(0.9rem);
+}
+
+.filter-directions {
+  font-size: 1.75rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.filter-options {
+  font-size: 3rem;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.btn-player {
+  background-color: rgb(88, 86, 238);
+}
+
+.btn-player.toggle {
+  background-color: rgb(129, 69, 119);
+  border-style: groove;
+  transform: scale(0.99);
+}
+
+.btn-team {
+  background-color: rgb(88, 86, 238);
+}
+
+.btn-team.toggle {
+  background-color: rgb(129, 69, 119);
+  border-style: groove;
+  transform: scale(0.99);
+}
+
+.btn-player,
+.btn-team {
+  width: 15vw;
+  padding: 0.75rem;
+  font-size: 2rem;
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-player:hover,
+.btn-team:hover {
+  background-color: rgb(129, 69, 119);
+}
+
+.btn-player:active,
+.btn-team:active {
+  transform: scale(0.9);
+}
+
+.item-list {
+  color: black;
+  font-size: 2rem;
+  align-items: center;
+  padding-left: 8rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.item-name {
+  font-size: 2.5rem;
+  color: black;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.item-name:hover {
+  color: rgb(102, 196, 240);
+}
+
+.item-info {
+  font-size: 2rem;
+  color: rgb(75, 75, 75);
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
+.player-stats {
+  font-size: 1.75rem;
+  padding-bottom: 2rem;
+}
+
+.team-info {
+  font-size: 1.75rem;
+  padding-bottom: 1rem;
+}
+
 html,
 body,
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 62.5%;
 }
 
@@ -39,21 +191,13 @@ body {
 }
 
 .bottom-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .api {
   font-size: 2rem;
   color: black;
   padding-bottom: 4rem;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
